@@ -2,5 +2,5 @@
 Trabajos Practicos de Sistemas distribuidos y Programacion Paralela
 
 Alumnos (Legajos):
-- Angel Gallozo (156308)
-- Sebastian Marchetti (156905)
+1. Angel Gallozo (156308)
+2. Sebastian Marchetti (156905)
