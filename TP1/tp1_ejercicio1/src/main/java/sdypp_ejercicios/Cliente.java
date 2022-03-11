@@ -2,26 +2,33 @@ package sdypp_ejercicios;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Cliente 
 {
-    final int port = 9090;
-	final String ip = "localhost";
+    private String ip_Destino;
+    private int puerto_Destino;
 
 	public Cliente(){
         try{
-            Socket sc = new Socket(ip,port);
-            System.out.println("Conectado con el Servidor: "+port);
-            System.out.println("=====================================");
-            System.out.println(" --- Comuniquese mediante la consola --- ");
-            boolean flag=false;
             Scanner scanner = new Scanner(System.in);
 
-            DataOutputStream salida= new DataOutputStream(sc.getOutputStream());//Canal de salida de datos al servidor
-            DataInputStream entrada= new DataInputStream(sc.getInputStream());//Canal de entrada de datos al servidor
+            System.out.println("=====================================");
+            System.out.println("¡Cliene inicializado!");
+            System.out.println("Ingrese la IP donde corre el servidor");
+            this.ip_Destino = scanner.nextLine();
+            System.out.println("Ingrese el puerto donde corre el servidor");
+            this.puerto_Destino = scanner.nextInt();
+            System.out.println("=====================================");
+
+            boolean flag=false;
+
+            Socket socket = new Socket(this.ip_Destino, this.puerto_Destino);
+            System.out.println("Conectado con el Servidor: " + this.ip_Destino + "\n");
+
+            DataOutputStream salida= new DataOutputStream(socket.getOutputStream());//Canal de salida de datos al servidor
+            DataInputStream entrada= new DataInputStream(socket.getInputStream());//Canal de entrada de datos al servidor
             while(!flag) 
             {
                 String input = scanner.nextLine();
@@ -39,12 +46,14 @@ public class Cliente
                 System.out.println(rec);
             }
 
-            sc.close();
+            socket.close();
             scanner.close();
-            System.out.println( "Servidor "+ port + " desconectado.");
+            System.out.println( "Servidor "+ this.puerto_Destino + " desconectado.");
             System.out.println("=====================================");
-
+            
         }catch (Exception e){
+            System.out.println("\n#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#");
+            System.out.println("Ha surgido un error");
             e.printStackTrace();
         }
 
