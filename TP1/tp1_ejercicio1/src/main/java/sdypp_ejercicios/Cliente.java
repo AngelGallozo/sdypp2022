@@ -15,6 +15,8 @@ public class Cliente
         try{
             Socket sc = new Socket(ip,port);
             System.out.println("Conectado con el Servidor: "+port);
+            System.out.println("=====================================");
+            System.out.println(" --- Comuniquese mediante la consola --- ");
             boolean flag=false;
             Scanner scanner = new Scanner(System.in);
 
@@ -28,15 +30,19 @@ public class Cliente
                 	flag=true;
                 }
 
+                System.out.println("------------------------------------");
+
                 salida.writeUTF(input);//Le manda el mensaje al servidor mediante el canal de salida
                 String rec= entrada.readUTF();//se queda a la espera de algun mensaje del servidor
                 System.out.println("Respuesta del Servidor");
+                System.out.println("------------------------------------");
                 System.out.println(rec);
             }
 
             sc.close();
             scanner.close();
             System.out.println( "Servidor "+ port + " desconectado.");
+            System.out.println("=====================================");
 
         }catch (Exception e){
             e.printStackTrace();
