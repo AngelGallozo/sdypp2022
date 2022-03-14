@@ -1,8 +1,3 @@
-Consultas: Ninguna
-
-Resultados: 
-
-Métricas: 
-    Realizado en localhost (ambos .jar): 
-    Realizado con docker, misma máquina: 
-    Realizado con docker, máquinas distintas: 
+Conclusión:
+    Se determino que porque se tiene un solo cliente, las peticiones fueron resueltas en un tiempo óptimo. 
+    Con respecto a mértricas, no vimos relevante medir el tiempo de las respuestas de las slicitudes en localhost y en los contenedores, porque la diferencia era ínfima (1 o 2 milisegundos).
