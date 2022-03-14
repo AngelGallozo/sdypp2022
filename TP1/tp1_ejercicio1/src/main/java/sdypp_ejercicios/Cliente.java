@@ -4,10 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;  
 import static java.time.temporal.ChronoUnit.MILLIS;
 
 public class Cliente 
@@ -20,14 +17,14 @@ public class Cliente
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("=====================================");
-            System.out.println("¡Cliene inicializado!");
+            System.out.println("¡Cliente inicializado!");
             System.out.println("Ingrese la IP donde corre el servidor");
 
             boolean flag = false;
             while(!flag){
                 this.ip_Destino = scanner.nextLine();
                 if(!validar_ip(this.ip_Destino)){
-                    System.out.println("ip no valido, ingrese otra");
+                    System.out.println("ip no valida, ingrese otra");
                 }else{
                     flag = true;
                 }
