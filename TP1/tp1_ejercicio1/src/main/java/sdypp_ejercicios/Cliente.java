@@ -4,6 +4,11 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;  
+import static java.time.temporal.ChronoUnit.MILLIS;
 
 public class Cliente 
 {
@@ -37,13 +42,21 @@ public class Cliente
                 	flag=true;
                 }
 
-                System.out.println("------------------------------------");
+                System.out.println("------------------------------------"); 
+
+                LocalTime tiempoAhora = java.time.LocalTime.now();
+                System.out.println("Tiempo mandado --> " + tiempoAhora); 
 
                 salida.writeUTF(input);//Le manda el mensaje al servidor mediante el canal de salida
                 String rec= entrada.readUTF();//se queda a la espera de algun mensaje del servidor
                 System.out.println("Respuesta del Servidor");
-                System.out.println("------------------------------------");
                 System.out.println(rec);
+                LocalTime tiempoDespues = java.time.LocalTime.now();  
+                
+                System.out.println("Tiempo recibido --> " + tiempoDespues); 
+
+                System.out.println("Tiempo transcurrido (milisegundos) --> " + tiempoAhora.until(tiempoDespues, MILLIS));                
+                System.out.println("------------------------------------");
             }
 
             socket.close();
