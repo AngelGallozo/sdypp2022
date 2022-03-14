@@ -13,7 +13,7 @@ import static java.time.temporal.ChronoUnit.MILLIS;
 public class Cliente 
 {
     private String ip_Destino;
-    private int puerto_Destino;
+    private String puerto_Destino;
 
 	public Cliente(){
         try{
@@ -22,14 +22,31 @@ public class Cliente
             System.out.println("=====================================");
             System.out.println("¡Cliene inicializado!");
             System.out.println("Ingrese la IP donde corre el servidor");
-            this.ip_Destino = scanner.nextLine();
+
+            boolean flag = false;
+            while(!flag){
+                this.ip_Destino = scanner.nextLine();
+                if(!validar_ip(this.ip_Destino)){
+                    System.out.println("ip no valido, ingrese otra");
+                }else{
+                    flag = true;
+                }
+            }
             System.out.println("Ingrese el puerto donde corre el servidor");
-            this.puerto_Destino = scanner.nextInt();
+            flag = false;
+            while(!flag){
+                this.puerto_Destino = scanner.nextLine();
+                if(!validar_puerto(this.puerto_Destino)){
+                    System.out.println("puerto no valido, ingrese otra");
+                }else{
+                    flag = true;
+                }
+            }
             System.out.println("=====================================");
 
-            boolean flag=false;
+            flag=false;
 
-            Socket socket = new Socket(this.ip_Destino, this.puerto_Destino);
+            Socket socket = new Socket(this.ip_Destino, Integer.parseInt(this.puerto_Destino));
             System.out.println("Conectado con el Servidor: " + this.ip_Destino + "\n");
 
             DataOutputStream salida= new DataOutputStream(socket.getOutputStream());//Canal de salida de datos al servidor
@@ -67,11 +84,54 @@ public class Cliente
         }catch (Exception e){
             System.out.println("\n#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#");
             System.out.println("Ha surgido un error");
-            e.printStackTrace();
+            System.out.println(e);
         }
-
-
     }
+
+    public boolean validar_ip(String input){
+        boolean validado = true;
+        try{
+            int index = 0;
+            while((validado) && (index < 4)){
+                String octeto = "";
+                if(index != 3){
+                    octeto = input.substring(0, input.indexOf("."));
+                    input = input.substring(input.indexOf(".")+1);
+                }else{
+                    octeto = input;
+                }
+                if((!octeto.matches("[0-9]+")) || (!validar_octeto(Integer.parseInt(octeto))))
+                    validado = false;
+                index++;
+            }
+
+        }catch (Exception e){
+            validado = false;
+        }
+        return validado;
+    }
+
+    public boolean validar_octeto(int octeto){
+        boolean validado = false;
+        if((0 <= octeto)&&(octeto <= 255))
+            validado = true;
+        return validado;
+    }
+
+    public boolean validar_puerto(String port){
+        boolean validado = false;
+        try{
+            int puerto = Integer.parseInt(port);
+            if((1024 <= puerto)&&(puerto <= 65535))
+                validado = true;
+        
+        }catch(Exception e){
+            validado = false;
+        }
+        return validado;
+        
+    }
+
     public static void main( String[] args )
     {
         Cliente cliente = new Cliente();
