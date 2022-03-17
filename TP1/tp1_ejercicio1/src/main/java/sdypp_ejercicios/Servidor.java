@@ -2,18 +2,35 @@ package sdypp_ejercicios;
 
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.logging.FileHandler;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
+
+// Imports de Logger
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class Servidor {
 
     final int port = 9090;
 
+    // private final Logger log = LoggerFactory.getLogger(Servidor.class);
+    private final Logger log = Logger.getLogger(Servidor.class.getName());
+    private FileHandler fh;  
+
 	public Servidor()
     {
         try{
+            this.fh = new FileHandler("logFile.log", true);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+            this.log.addHandler(this.fh);
+
             ServerSocket serverSocket = new ServerSocket(port);
-            System.out.println("Server escuchando en el puerto: "+port);
+            this.log.info("Server escuchando en el puerto: "+port);
+            this.log.severe("Ocurrio un error!!");
+            this.log.warning("Esto es un warning, sea lo que sea!!");
             System.out.println("=====================================");
 
             while (true){
@@ -24,6 +41,12 @@ public class Servidor {
                 atenderCliente(clientSocket);
             }
 
+        }catch(IOException e){
+            log.severe("No se pudo abrir el fichero");
+            e.printStackTrace();
+        }catch(SecurityException e){
+            log.severe("Hubo un problema con la seguridad del fileSystem");
+            e.printStackTrace();
         }catch (Exception e){
             e.printStackTrace();
         }

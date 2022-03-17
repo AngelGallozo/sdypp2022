@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="sdypp_ejercicios.AppTest" time="0.169" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="sdypp_ejercicios.AppTest" time="0.165" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.specification.version" value="11"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio1\target\test-classes;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio1\target\classes;C:\Users\Sebas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Sebas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.class.path" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio1\target\test-classes;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio1\target\classes;C:\Users\Sebas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Sebas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Sebas\.m2\repository\ch\qos\logback\logback-classic\1.3.0-alpha13\logback-classic-1.3.0-alpha13.jar;C:\Users\Sebas\.m2\repository\ch\qos\logback\logback-core\1.3.0-alpha13\logback-core-1.3.0-alpha13.jar;C:\Users\Sebas\.m2\repository\org\slf4j\slf4j-api\2.0.0-alpha5\slf4j-api-2.0.0-alpha5.jar;"/>
     <property name="java.vm.vendor" value="AdoptOpenJDK"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -17,9 +17,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Sebas\AppData\Local\Temp\surefire18385110828223425499\surefirebooter2588626884014775547.jar C:\Users\Sebas\AppData\Local\Temp\surefire18385110828223425499 2022-03-14T16-28-23_890-jvmRun1 surefire13695546081806683505tmp surefire_018206045267487437429tmp"/>
+    <property name="sun.java.command" value="C:\Users\Sebas\AppData\Local\Temp\surefire17252262749141066630\surefirebooter5888181018976626475.jar C:\Users\Sebas\AppData\Local\Temp\surefire17252262749141066630 2022-03-16T15-05-15_023-jvmRun1 surefire2862058586892496865tmp surefire_01115959812652251819tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio1\target\test-classes;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio1\target\classes;C:\Users\Sebas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Sebas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="surefire.test.class.path" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio1\target\test-classes;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio1\target\classes;C:\Users\Sebas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Sebas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Sebas\.m2\repository\ch\qos\logback\logback-classic\1.3.0-alpha13\logback-classic-1.3.0-alpha13.jar;C:\Users\Sebas\.m2\repository\ch\qos\logback\logback-core\1.3.0-alpha13\logback-core-1.3.0-alpha13.jar;C:\Users\Sebas\.m2\repository\org\slf4j\slf4j-api\2.0.0-alpha5\slf4j-api-2.0.0-alpha5.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Sebas"/>
     <property name="user.language" value="es"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Sebas\AppData\Local\Temp\surefire18385110828223425499\surefirebooter2588626884014775547.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Sebas\AppData\Local\Temp\surefire17252262749141066630\surefirebooter5888181018976626475.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.11+9"/>
@@ -60,5 +60,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="sdypp_ejercicios.AppTest" time="0.008"/>
+  <testcase name="shouldAnswerWithTrue" classname="sdypp_ejercicios.AppTest" time="0.006"/>
 </testsuite>
