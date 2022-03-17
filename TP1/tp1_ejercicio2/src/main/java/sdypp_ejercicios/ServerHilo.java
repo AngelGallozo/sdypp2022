@@ -5,14 +5,16 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.logging.Logger;
 
 public class ServerHilo implements Runnable {
 	BufferedReader canalEntrada;
     PrintWriter canalSalida;
     Socket client;
+    Logger log;
 
-    public ServerHilo(Socket client) {
-
+    public ServerHilo(Socket client, Logger log) {
+        this.log = log;
         this.client = client;
     }
     
@@ -25,18 +27,21 @@ public class ServerHilo implements Runnable {
             while ( !flag ) {
                 String rec = entrada.readUTF();//se queda a la espera de algun mensaje del cliente
                 if ( !rec.equals("exit") ) {
-                    System.out.println("Mensaje del cliente: " + rec);
+                    this.log.info("Cliente <" + this.client.getPort() + "> -- Mensaje: " + rec);
                     System.out.println("------------------------------------");
                     salida.writeUTF("El server responde: " + rec);//Le manda el mensaje al cliente mediante el canal de salida
                 } else {
                     flag = true ;
                     salida.writeUTF("El cliente se ha desconectado.");//Le manda el mensaje al cliente mediante el canal de salida
+                    this.log.info("El cliente <"+ this.client.getPort() +"> se ha desconectado.");//Le manda el mensaje al cliente mediante el canal de salida
                     System.out.println("=====================================");
                     salida.close(); //cierre canal salida
                     client.close();//cierre conexion con el cliente
                 }
             }
         } catch (Exception e) {
+            System.out.println("################################");
+            this.log.severe("Ha ocurrido un error!");
             e.printStackTrace();
         }
 

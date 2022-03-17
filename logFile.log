@@ -14,3 +14,35 @@ mar. 17, 2022 3:48:11 P. M. sdypp_ejercicios.Servidor atenderCliente
 INFORMACIÓN: Mensaje del cliente: otro mensaje
 mar. 17, 2022 3:48:18 P. M. sdypp_ejercicios.Servidor atenderCliente
 INFORMACIÓN: Mensaje del cliente: Angel si ves esto, hola
+mar. 17, 2022 4:50:09 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+mar. 17, 2022 4:50:22 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 60093
+mar. 17, 2022 4:50:34 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: Mensaje del cliente: Hola angel
+mar. 17, 2022 4:50:55 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 60094
+mar. 17, 2022 4:50:59 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: Mensaje del cliente: Hola seba pvto
+mar. 17, 2022 4:53:28 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+mar. 17, 2022 4:54:20 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 60111
+mar. 17, 2022 4:54:37 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: Cliente <60111> -- Mensaje: Hola hola
+mar. 17, 2022 4:54:49 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: Cliente <60111> -- Mensaje: hola tarola
+mar. 17, 2022 4:55:02 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 60117
+mar. 17, 2022 4:55:05 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: Cliente <60117> -- Mensaje: QUE DIJISTE
+mar. 17, 2022 4:55:15 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: Cliente <60111> -- Mensaje: insecto
+mar. 17, 2022 4:59:38 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+mar. 17, 2022 4:59:46 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 49753
+mar. 17, 2022 4:59:48 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: Cliente <49753> -- Mensaje: hola
+mar. 17, 2022 4:59:50 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: El cliente <49753> se ha desconectado.
