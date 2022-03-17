@@ -1,3 +1,5 @@
 Conclusión:
     Se determino que porque se tiene un solo cliente, las peticiones fueron resueltas en un tiempo óptimo. 
     Con respecto a mértricas, no vimos relevante medir el tiempo de las respuestas de las slicitudes en localhost y en los contenedores, porque la diferencia era ínfima (1 o 2 milisegundos).
+    Si otro usuario quiere conectarse al servidor, si este ya está atendiendo a otro, se quedará colgado. 
+        Esto se soluciona en el Eejercicio 2.
