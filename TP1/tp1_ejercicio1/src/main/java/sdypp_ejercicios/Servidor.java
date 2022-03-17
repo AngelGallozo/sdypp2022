@@ -29,14 +29,12 @@ public class Servidor {
 
             ServerSocket serverSocket = new ServerSocket(port);
             this.log.info("Server escuchando en el puerto: "+port);
-            this.log.severe("Ocurrio un error!!");
-            this.log.warning("Esto es un warning, sea lo que sea!!");
             System.out.println("=====================================");
 
             while (true){
                 Socket clientSocket = serverSocket.accept(); //Queda a la espera conexion del cliente
                 int port_cli= clientSocket.getPort();
-                System.out.println( "Atendiendo al cliente: " + port_cli);
+                this.log.info("Atendiendo al cliente: " + port_cli);
                 System.out.println("------------------------------------");
                 atenderCliente(clientSocket);
             }
@@ -61,7 +59,7 @@ public class Servidor {
             while ( !flag ) {
                 String rec = entrada.readUTF();//se queda a la espera de algun mensaje del cliente
                 if ( !rec.equals("exit") ) {
-                    System.out.println("Mensaje del cliente: " + rec);
+                    log.info("Mensaje del cliente: " + rec);
                     System.out.println("------------------------------------");
                     salida.writeUTF("El server responde: " + rec);//Le manda el mensaje al cliente mediante el canal de salida
                 } else {

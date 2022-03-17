@@ -4,3 +4,13 @@ mar. 16, 2022 8:42:26 P. M. sdypp_ejercicios.Servidor <init>
 GRAVE: Ocurrio un error!!
 mar. 16, 2022 8:42:26 P. M. sdypp_ejercicios.Servidor <init>
 ADVERTENCIA: Esto es un warning, sea lo que sea!!
+mar. 17, 2022 3:45:42 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+mar. 17, 2022 3:47:46 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 60482
+mar. 17, 2022 3:47:50 P. M. sdypp_ejercicios.Servidor atenderCliente
+INFORMACIÓN: Mensaje del cliente: Mensaje del cliente
+mar. 17, 2022 3:48:11 P. M. sdypp_ejercicios.Servidor atenderCliente
+INFORMACIÓN: Mensaje del cliente: otro mensaje
+mar. 17, 2022 3:48:18 P. M. sdypp_ejercicios.Servidor atenderCliente
+INFORMACIÓN: Mensaje del cliente: Angel si ves esto, hola
