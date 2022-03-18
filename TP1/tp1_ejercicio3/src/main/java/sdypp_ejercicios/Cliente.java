@@ -47,6 +47,7 @@ public class Cliente
             DataOutputStream salida= new DataOutputStream(socket.getOutputStream());//Canal de salida de datos al servidor
             DataInputStream entrada= new DataInputStream(socket.getInputStream());//Canal de entrada de datos al servidor
             
+            flag = false;
             while(!flag) {
                 String rec= entrada.readUTF();
                 if(rec.equals("-1"))

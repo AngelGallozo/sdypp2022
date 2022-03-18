@@ -203,7 +203,47 @@ public class ServerHilo implements Runnable {
 
     //_________________________________________________________________________Opcion Bajar Mensajes____________________________________________________________________
     public void bajarMensajes(DataInputStream entrada, DataOutputStream salida){
+        
+            // Lista de mensjaes del usuario
+            boolean flag = false;
+            this.response = "";
+            while(!flag){
+                try {
+                    this.response += " -- Lista de mensajes --\n";
+                    this.response += this.usuario_actual.getList_mensajes();
+                    this.response += "\nSeleccione el mensaje que quiera ver\nMande 'x' para salir";
+                    salida.writeUTF(this.response); 
+                    String opcion = entrada.readUTF();
+                    if(opcion.equals("x"))
+                        flag = true;
+                    else{
+                        if(!getMensajeIndividual(opcion, entrada, salida))
+                            this.response = " ## Opcion invalida - Vuelva a ingresar ##\n";
+                    }
+                } catch (Exception e) {
 
+                }
+            }
+    }
+
+    // bajar Mensaje individual(indice en el array)
+    public boolean getMensajeIndividual(String opcion, DataInputStream entrada, DataOutputStream salida){
+        boolean valido = true;
+        try {
+            int index = Integer.parseInt(opcion);
+            if(index < 0)
+                valido = false;
+            else{
+                String mensaje = this.usuario_actual.getMensaje(index);
+                salida.writeUTF(mensaje + "\n\nPulse cualquier tecla para salir");
+                String tecla = entrada.readUTF();
+                valido = true;
+                this.response = "";
+            }
+        } catch (Exception e) {
+            valido = false;
+        }
+        return valido;
     }
 
     //_________________________________________________________________________FIN Opcion Bajar Mensajes_________________________________________________________________
