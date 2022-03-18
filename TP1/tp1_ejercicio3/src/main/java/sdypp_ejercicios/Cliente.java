@@ -11,7 +11,7 @@ public class Cliente
 {
     private String ip_Destino;
     private String puerto_Destino;
-
+    
 	public Cliente(){
         try{
             Scanner scanner = new Scanner(System.in);
@@ -41,36 +41,21 @@ public class Cliente
             }
             System.out.println("=====================================\n");
 
-            flag=false;
-
             Socket socket = new Socket(this.ip_Destino, Integer.parseInt(this.puerto_Destino));
             System.out.println("¡Conectado con el Servidor: " + this.ip_Destino + "!\n");
 
             DataOutputStream salida= new DataOutputStream(socket.getOutputStream());//Canal de salida de datos al servidor
             DataInputStream entrada= new DataInputStream(socket.getInputStream());//Canal de entrada de datos al servidor
-            while(!flag) 
-            {
-                String input = scanner.nextLine();
-
-                if(input.equals("exit")) {
-                	flag=true;
+            
+            while(!flag) {
+                String rec= entrada.readUTF();
+                if(rec.equals("-1"))
+                    flag = true;
+                else{
+                    System.out.println(rec);
+                    String input = scanner.nextLine();
+                    salida.writeUTF(input);
                 }
-
-                System.out.println("------------------------------------"); 
-
-                LocalTime tiempoAhora = java.time.LocalTime.now();
-                System.out.println("Tiempo mandado --> " + tiempoAhora); 
-
-                salida.writeUTF(input);//Le manda el mensaje al servidor mediante el canal de salida
-                String rec= entrada.readUTF();//se queda a la espera de algun mensaje del servidor
-                System.out.println("Respuesta del Servidor");
-                System.out.println(rec);
-                LocalTime tiempoDespues = java.time.LocalTime.now();  
-                
-                System.out.println("Tiempo recibido --> " + tiempoDespues); 
-
-                System.out.println("Tiempo transcurrido (milisegundos) --> " + tiempoAhora.until(tiempoDespues, MILLIS));                
-                System.out.println("------------------------------------");
             }
 
             socket.close();
@@ -80,7 +65,7 @@ public class Cliente
             
         }catch (Exception e){
             System.out.println("\n#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#");
-            System.out.println("Ha surgido un error");
+            System.out.println("Ha surgido un error!! Desconectando del servidor");
             System.out.println(e);
         }
     }
