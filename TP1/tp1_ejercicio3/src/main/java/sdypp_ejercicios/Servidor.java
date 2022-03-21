@@ -21,6 +21,7 @@ public class Servidor {
     {
         try{
             usuarios = new ArrayList<Usuario>();
+
             this.fh = new FileHandler("logFile.log", true);
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
@@ -33,6 +34,7 @@ public class Servidor {
             while (true){
                 Socket clientSocket = serverSocket.accept(); //Queda a la espera conexion del cliente
                 int port_cli= clientSocket.getPort();
+                System.out.println("------------------------------------");
                 this.log.info( "Atendiendo al cliente: " + port_cli);
                 System.out.println("------------------------------------");
                 ServerHilo sh = new ServerHilo(clientSocket, this.log, usuarios);

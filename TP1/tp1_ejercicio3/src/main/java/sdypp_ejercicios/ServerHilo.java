@@ -33,22 +33,23 @@ public class ServerHilo implements Runnable {
             while ( !flag ) {
                 this.response += opcionesMenuLogin();
                 System.out.println("------------------------------------");
-                salida.writeUTF(this.response);//enviamos Menu Login.
+                salida.writeUTF(this.response);     //enviamos Menu Login.
                 String opcion = entrada.readUTF();
                 if (opcion.equals("3")){
                     flag = true ;
-                    salida.writeUTF("-1");//Señal de desconexion al cliente.
+                    salida.writeUTF("-1");  //Señal de desconexion al cliente.
                 }else{
-                    if(opcion.equals("1")){//Inicio de Sesion.
+                    if(opcion.equals("1")){     //Inicio de Sesion.
                         if (iniciarSesion(entrada, salida)){
                             menuMensajes(entrada, salida);
                         }
                     }
-
                     if(opcion.equals("2")){//Registro.
                         if(registrarse(entrada, salida)){
                             menuMensajes(entrada, salida);
                         }
+                    }else{  // Respuesta invalida
+                        this.response = "Opcion invalida!! Elija una de las opciones anteriores! \n";
                     }
                 }
             }
@@ -64,8 +65,6 @@ public class ServerHilo implements Runnable {
         }
     }
 
-
-
     public boolean iniciarSesion(DataInputStream entrada, DataOutputStream salida){
         boolean respuesta=true;
         try {
@@ -73,17 +72,20 @@ public class ServerHilo implements Runnable {
             String username= entrada.readUTF();
             salida.writeUTF("Ingrese contrasenia");
             String password= entrada.readUTF();
-            Usuario usuario_log = existeUsuario(username,password);
+            Usuario usuario_log = existeUsuario(username);
             if (usuario_log != null){
                 if(usuario_log.getPassword().equals(password)){
                     this.usuario_actual = usuario_log;
+                    this.log.info("Usuario <" + this.client.getPort() +"> Ha iniciado sesión como <" + username +">");
                     respuesta=true;
                 }else{
                     respuesta=false;
+                    this.log.warning( "Usuario <" + this.client.getPort() + "> Error: Usuario o Contrasenia erroneos");
                     this.response = "\n "+"Error: Usuario o Contrasenia erroneos.";
                 }
             }else{
                 respuesta=false;
+                this.log.warning( "Usuario <" + this.client.getPort() + "> Error: Usuario no existe");
                 this.response = "\n "+"Error: Usuario no existe";
             }
 
@@ -97,7 +99,6 @@ public class ServerHilo implements Runnable {
         return respuesta;
     }
 
-
     public boolean registrarse(DataInputStream entrada, DataOutputStream salida){
         boolean respuesta = true;
         try {
@@ -105,12 +106,14 @@ public class ServerHilo implements Runnable {
             String username= entrada.readUTF();
             salida.writeUTF("Ingrese contrasenia");
             String password= entrada.readUTF();
-            Usuario usuario_log = existeUsuario(username,password);
+            Usuario usuario_log = existeUsuario(username);
             if(usuario_log == null){
                 this.usuario_actual = new Usuario(username, password);
                 this.usuarios.add(this.usuario_actual);
+                this.log.info( "Usuario <" + this.client.getPort() + "> Usuario registrado!");
             }else{
                 this.response = "\n "+"Error: Usuario ya existe.";
+                this.log.warning( "Usuario <" + this.client.getPort() + "> Usuario ya existe");
                 respuesta=false;
             }
 
@@ -124,7 +127,7 @@ public class ServerHilo implements Runnable {
         return respuesta;
     }
 
-    public Usuario existeUsuario(String username, String password){
+    public Usuario existeUsuario(String username){
         Usuario usu_existe = null;
         int i = 0;
         while ( usu_existe ==null && i < this.usuarios.size()) {
@@ -138,6 +141,7 @@ public class ServerHilo implements Runnable {
 
     //_________________________________________________________________________Opcion Escribir Mensaje____________________________________________________________________
     public void menuMensajes(DataInputStream entrada, DataOutputStream salida){
+        this.response = "\nBienvenido " + this.usuario_actual.getNombre() + "!\n";
         try {
             boolean flag = false;
             while(!flag){
@@ -148,15 +152,13 @@ public class ServerHilo implements Runnable {
                     flag = true;
                 }else{
                     if(opcion.equals("1")){//Inicio de Sesion.
-                        escribirMensaje(entrada,salida);
-                        this.response = "El mensaje fue enviado con exito.!!";
+                        escribirMensaje(entrada,salida);   
                     }
 
                     if(opcion.equals("2")){//Registro.
                         bajarMensajes(entrada,salida);
                     }
                 }
-
             }
 
         } catch (Exception e) {
@@ -165,18 +167,27 @@ public class ServerHilo implements Runnable {
             this.response = "\n "+"Ha ocurrido un error con el Menu Mensajes!";
             e.printStackTrace();
         }
+        this.response = "";
     }
 
     public void escribirMensaje(DataInputStream entrada, DataOutputStream salida){
         try {
             salida.writeUTF("Ingrese usuario destino");    
             String user_destino= entrada.readUTF();
-            salida.writeUTF("Ingrese asunto");
-            String asunto= entrada.readUTF();
-            salida.writeUTF("Ingrese mensaje");    
-            String msj= entrada.readUTF();
-            Mensaje mensaje = new Mensaje(this.usuario_actual.getNombre(), user_destino, asunto, msj);
-            enviarMensaje(mensaje);
+            if(this.validarDestino(user_destino)){
+                salida.writeUTF("Ingrese asunto");
+                String asunto= entrada.readUTF();
+                salida.writeUTF("Ingrese mensaje");    
+                String msj= entrada.readUTF();
+                Mensaje mensaje = new Mensaje(this.usuario_actual.getNombre(), user_destino, asunto, msj);
+                enviarMensaje(mensaje);
+                this.response = "El mensaje fue enviado con exito.!!\n";
+                this.log.info( "Usuario <" + this.client.getPort() + "> Mensaje enviado con exito, de <" 
+                    + this.usuario_actual.getNombre() + "> a <" +user_destino + ">");
+            }else{
+                this.response = "El usuario destino no existe!!\n";
+                this.log.warning( "Usuario <" + this.client.getPort() + "> El usuario destino no existe");
+            }
 
         } catch (Exception e) {
             System.out.println("################################");
@@ -187,6 +198,12 @@ public class ServerHilo implements Runnable {
         
     }
 
+    public boolean validarDestino(String destino){
+        boolean response = false;
+        if(this.existeUsuario(destino) != null)
+            response = true;
+        return response;
+    }
 
     public void enviarMensaje( Mensaje mensaje){
         int i = 0;
@@ -203,27 +220,34 @@ public class ServerHilo implements Runnable {
 
     //_________________________________________________________________________Opcion Bajar Mensajes____________________________________________________________________
     public void bajarMensajes(DataInputStream entrada, DataOutputStream salida){
-        
-            // Lista de mensjaes del usuario
-            boolean flag = false;
-            this.response = "";
-            while(!flag){
-                try {
-                    this.response += " -- Lista de mensajes --\n";
-                    this.response += this.usuario_actual.getList_mensajes();
-                    this.response += "\nSeleccione el mensaje que quiera ver\nMande 'x' para salir";
-                    salida.writeUTF(this.response); 
-                    String opcion = entrada.readUTF();
-                    if(opcion.equals("x"))
-                        flag = true;
-                    else{
-                        if(!getMensajeIndividual(opcion, entrada, salida))
-                            this.response = " ## Opcion invalida - Vuelva a ingresar ##\n";
-                    }
-                } catch (Exception e) {
-
+        // Lista de mensjaes del usuario
+        boolean flag = false;
+        this.response = "";
+        while(!flag){
+            try {
+                this.log.info( "Usuario <" + this.client.getPort() + "> Bajo su lista de mensajes");
+                this.response += " -- Lista de mensajes --\n";
+                this.response += this.usuario_actual.getList_mensajes();
+                this.response += "\nSeleccione el mensaje que quiera ver\nMande 'x' para salir";
+                salida.writeUTF(this.response); 
+                String opcion = entrada.readUTF();
+                if(opcion.equals("x")){
+                    flag = true;
                 }
+                else{
+                    if(!getMensajeIndividual(opcion, entrada, salida))
+                        this.response = " ## Opcion invalida - Vuelva a ingresar ##\n";
+                    else
+                        this.log.info( "Usuario <" + this.client.getPort() + "> Bajo mensaje " + opcion);
+                }
+            } catch (Exception e) {
+                System.out.println("################################");
+                this.log.severe("Ha ocurrido un error!");
+                this.response = "\nHa ocurrido un error al bajar los Mensajes!";
+                e.printStackTrace();
             }
+        }
+        this.response = "";
     }
 
     // bajar Mensaje individual(indice en el array)
@@ -254,13 +278,13 @@ public class ServerHilo implements Runnable {
         return "==========================\n    "
         + "Menu Login\n--------------------------"
         + "\n<1> - Iniciar Sesion\n<2> - Registrarse\n<3> - Desconectarse\n"
-        + "Ingrese una Opcion: \n--------------------------\n";
+        + "Ingrese una Opcion: \n--------------------------";
     }
 
     public String opcionesMenuMensaje(){
         return "==========================\n    "
         + "Menu Mensajes\n--------------------------"
         + "\n<1> - Escribir Mensaje\n<2> - Listar Mensajes\n<3> - Salir\n"
-        + "Ingrese una Opcion: \n--------------------------\n";
+        + "Ingrese una Opcion: \n--------------------------";
     }
 }

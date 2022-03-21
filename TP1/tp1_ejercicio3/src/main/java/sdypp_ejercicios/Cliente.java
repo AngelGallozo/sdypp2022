@@ -29,7 +29,7 @@ public class Cliente
                     flag = true;
                 }
             }
-            System.out.println("\n\nIngrese el puerto donde corre el servidor");
+            System.out.println("\nIngrese el puerto donde corre el servidor");
             flag = false;
             while(!flag){
                 this.puerto_Destino = scanner.nextLine();

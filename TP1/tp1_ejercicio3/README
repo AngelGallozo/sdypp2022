@@ -1,3 +1,4 @@
 Conclusión:
-    Con respecto a las métricas, estas fueron similares, sino identicas, a las del ejercicio 1. 
-    A diferencia del Eejercicio 1, con la incorporación de Hilos ya se pueden atender a varios usuarios sin que queden colgados. 
+    Se pudieron atender a varios cliente a la vez, identificándolos por los puertos utilizados.
+    En cuanto a métricas, estas fueron similares a las de los ejercicios anteriores.
+    Hicimos que los mensajes almacenados en el servidor puedan ser accedidos por cada hilo en ejecución.

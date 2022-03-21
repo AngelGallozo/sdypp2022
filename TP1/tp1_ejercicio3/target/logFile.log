@@ -1,0 +1,72 @@
+mar. 21, 2022 4:16:15 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+mar. 21, 2022 4:16:41 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 52170
+mar. 21, 2022 4:17:12 P. M. sdypp_ejercicios.ServerHilo registrarse
+INFORMACIÓN: Usuario <52170> Usuario registrado!
+mar. 21, 2022 4:17:49 P. M. sdypp_ejercicios.ServerHilo escribirMensaje
+ADVERTENCIA: Usuario <52170> El usuario destino no existe
+mar. 21, 2022 4:18:13 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 63188
+mar. 21, 2022 4:18:21 P. M. sdypp_ejercicios.ServerHilo registrarse
+INFORMACIÓN: Usuario <63188> Usuario registrado!
+mar. 21, 2022 4:18:54 P. M. sdypp_ejercicios.ServerHilo escribirMensaje
+INFORMACIÓN: Usuario <63188> Mensaje enviado con exito, de <Angel> a <ElChavo>
+mar. 21, 2022 4:18:59 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <52170> Bajo su lista de mensajes
+mar. 21, 2022 4:19:04 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <52170> Bajo mensaje 0
+mar. 21, 2022 4:19:04 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <52170> Bajo su lista de mensajes
+mar. 21, 2022 4:19:27 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: El cliente <52170> se ha desconectado.
+mar. 21, 2022 4:19:36 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 63240
+mar. 21, 2022 4:19:42 P. M. sdypp_ejercicios.ServerHilo iniciarSesion
+INFORMACIÓN: Usuario <63240> Ha iniciado sesión como <ElChavo>
+mar. 21, 2022 4:19:46 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <63240> Bajo su lista de mensajes
+mar. 21, 2022 4:20:22 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: El cliente <63240> se ha desconectado.
+mar. 21, 2022 4:20:25 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: El cliente <63188> se ha desconectado.
+mar. 21, 2022 5:37:09 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+mar. 21, 2022 5:37:17 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 62407
+mar. 21, 2022 5:37:23 P. M. sdypp_ejercicios.ServerHilo iniciarSesion
+ADVERTENCIA: Usuario <62407> Error: Usuario no existe
+mar. 21, 2022 5:38:16 P. M. sdypp_ejercicios.ServerHilo registrarse
+INFORMACIÓN: Usuario <62407> Usuario registrado!
+mar. 21, 2022 5:47:33 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:46 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:47 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:49 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:49 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:50 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:50 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:50 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:51 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <62407> Bajo su lista de mensajes
+mar. 21, 2022 5:59:57 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: El cliente <62407> se ha desconectado.
+mar. 21, 2022 6:03:09 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+mar. 21, 2022 6:03:18 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 57527
+mar. 21, 2022 6:03:31 P. M. sdypp_ejercicios.ServerHilo registrarse
+INFORMACIÓN: Usuario <57527> Usuario registrado!
+mar. 21, 2022 6:03:35 P. M. sdypp_ejercicios.ServerHilo bajarMensajes
+INFORMACIÓN: Usuario <57527> Bajo su lista de mensajes
+mar. 21, 2022 6:04:39 P. M. sdypp_ejercicios.ServerHilo escribirMensaje
+ADVERTENCIA: Usuario <57527> El usuario destino no existe
+mar. 21, 2022 6:04:45 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: El cliente <57527> se ha desconectado.
