@@ -1,0 +1,4 @@
+Conclusión:
+    Se pudieron atender a varios cliente a la vez, identificándolos por los puertos utilizados.
+    En cuanto a métricas, estas fueron similares a las de los ejercicios anteriores.
+    Hicimos que los mensajes almacenados en el servidor puedan ser accedidos por cada hilo en ejecución.
