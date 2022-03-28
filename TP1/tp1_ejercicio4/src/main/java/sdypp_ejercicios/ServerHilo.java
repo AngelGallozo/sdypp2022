@@ -43,12 +43,12 @@ public class ServerHilo implements Runnable {
                         if (iniciarSesion(entrada, salida)){
                             menuMensajes(entrada, salida);
                         }
-                    }
-                    if(opcion.equals("2")){//Registro.
+                    }else if(opcion.equals("2")){//Registro.
                         if(registrarse(entrada, salida)){
                             menuMensajes(entrada, salida);
                         }
-                    }else{  // Respuesta invalida
+                    }else{
+                        // Respuesta invalida
                         this.response = "Opcion invalida!! Elija una de las opciones anteriores! \n";
                     }
                 }
@@ -86,7 +86,7 @@ public class ServerHilo implements Runnable {
             }else{
                 respuesta=false;
                 this.log.warning( "Usuario <" + this.client.getPort() + "> Error: Usuario no existe");
-                this.response = "\n "+"Error: Usuario no existe";
+                this.response = "\n "+"Error: Usuario no existe\n ";
             }
 
         } catch (Exception e) {
@@ -148,15 +148,19 @@ public class ServerHilo implements Runnable {
                 this.response += opcionesMenuMensaje();
                 salida.writeUTF(this.response);
                 String opcion = entrada.readUTF();
-                if (opcion.equals("3")){
+                if (opcion.equals("4")){
                     flag = true;
                 }else{
-                    if(opcion.equals("1")){//Inicio de Sesion.
+                    if(opcion.equals("1")){//Escribir Mensaje.
                         escribirMensaje(entrada,salida);   
                     }
 
-                    if(opcion.equals("2")){//Registro.
+                    if(opcion.equals("2")){//Bajar Lista Mensajes.
                         bajarMensajes(entrada,salida);
+                    }
+
+                    if(opcion.equals("3")){//Eliminar Mensaje.
+                        eliminarMensajes(entrada,salida);
                     }
                 }
             }
@@ -228,60 +232,86 @@ public class ServerHilo implements Runnable {
                 this.log.info( "Usuario <" + this.client.getPort() + "> Bajo su lista de mensajes");
                 this.response += " -- Lista de mensajes --\n";
                 this.response += this.usuario_actual.getList_mensajes();
-                this.response += "\nSeleccione el mensaje que quiera ver\nMande 'x' para salir";
+                this.response += "\nSeleccione el numero de mensaje que quiera ver, o Mande 'x' para salir\n";
                 salida.writeUTF(this.response); 
                 String opcion = entrada.readUTF();
-                if(opcion.equals("x")){
+                if(opcion.toUpperCase().equals("X")){
                     flag = true;
                 }
                 else{
-                    if(!getMensajeIndividual(opcion, entrada, salida))
+                    if(!validarOpcionListMensajes(opcion, entrada, salida))
                         this.response = " ## Opcion invalida - Vuelva a ingresar ##\n";
-                    else
+                    else{
+                        String mensaje = this.usuario_actual.getMensaje(Integer.parseInt(opcion));
+                        salida.writeUTF(mensaje + "\n\nPulse cualquier tecla para salir");
+                        String tecla = entrada.readUTF();
                         this.log.info( "Usuario <" + this.client.getPort() + "> Bajo mensaje " + opcion);
+                        this.response = "";
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("################################");
                 this.log.severe("Ha ocurrido un error!");
-                this.response = "\nHa ocurrido un error al bajar los Mensajes!";
+                this.response = "\nHa ocurrido un error al bajar los Mensajes!\n";
                 e.printStackTrace();
             }
         }
         this.response = "";
     }
 
-    // bajar Mensaje individual(indice en el array)
-    public boolean getMensajeIndividual(String opcion, DataInputStream entrada, DataOutputStream salida){
+    // Valida si la opcion elegida es un entero
+    public boolean validarOpcionListMensajes(String opcion, DataInputStream entrada, DataOutputStream salida){
         boolean valido = true;
         try {
-            int index = Integer.parseInt(opcion);
-            if(index < 0)
-                valido = false;
-            else{
-                String mensaje = this.usuario_actual.getMensaje(index);
-                salida.writeUTF(mensaje + "\n\nPulse cualquier tecla para salir");
-                String tecla = entrada.readUTF();
-                valido = true;
-                this.response = "";
-            }
+            this.usuario_actual.getMensaje(Integer.parseInt(opcion));
         } catch (Exception e) {
             valido = false;
         }
         return valido;
     }
 
-    public boolean eliminarMensaje(int index){
-        boolean response = false;
-        // borrar mensaje en la lista del usuario actual
-        try {
-            this.usuario_actual.removerMensaje(index);
-            response = true;
-        } catch (IndexOutOfBoundsException e) {
-            response = false;
-            this.log.severe("Usuario <" + this.client.getPort() + "> - IndexOutOfBoundsException - Indice de mensaje en lista invalido");
-            this.response = "¡Indice de mensaje invalido!\n";
+    public void eliminarMensajes(DataInputStream entrada, DataOutputStream salida){
+        // Eliminar mensaje en la lista
+        boolean flag = false;
+        this.response = "";
+        while(!flag){
+            try {
+                this.log.info( "Usuario <" + this.client.getPort() + "> Opcion Eliminar mensajes");
+                this.response += " -- Mensajes a borrar --\n";
+                this.response += this.usuario_actual.getList_mensajes();
+                this.response += "\nSeleccione el numero de mensaje a borrar, o Mande 'x' para salir";
+                salida.writeUTF(this.response); 
+                String opcion = entrada.readUTF();
+                if(opcion.toUpperCase().equals("X")){
+                    flag = true;
+                }
+                else{
+                    if(!validarOpcionListMensajes(opcion, entrada, salida))
+                        this.response = " ## Opcion invalida - Vuelva a ingresar ##\n";
+                    else{
+                        //Confirmacion de ELIMINACION
+                        salida.writeUTF("Estas seguro que desea borrar el mensaje ["+opcion+"]?\n 'S' para SI, 'cualquier tecla' para NO "); 
+                        String confirmacion = entrada.readUTF();
+                        if(confirmacion.toUpperCase().equals("S")){
+                            // borrar mensaje en la lista del usuario actual
+                            this.usuario_actual.removerMensaje(Integer.parseInt(opcion));
+                            this.log.info( "Usuario <" + this.client.getPort() + "> Elimino el Mensaje " + opcion);
+                            this.response = "Exito! Se elimino el Mensaje [ "+opcion+" ]\n";
+                        }else{
+                            // cancela borrado de mensaje en la lista del usuario actual
+                            this.log.info( "Usuario <" + this.client.getPort() + "> Cancela eliminacion del Mensaje " + opcion);
+                            this.response = "Cancelado! No se elimino el Mensaje [ "+opcion+" ]\n";
+                        }
+                        
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("################################");
+                this.log.severe("Ha ocurrido un error!");
+                this.response = "\nHa ocurrido un error al eliminar los Mensajes!\n";
+                e.printStackTrace();
+            }
         }
-        return response;
     }
 
     //_________________________________________________________________________FIN Opcion Bajar Mensajes_________________________________________________________________
@@ -298,7 +328,7 @@ public class ServerHilo implements Runnable {
     public String opcionesMenuMensaje(){
         return "==========================\n    "
         + "Menu Mensajes\n--------------------------"
-        + "\n<1> - Escribir Mensaje\n<2> - Listar Mensajes\n<3> - Salir\n"
+        + "\n<1> - Escribir Mensaje\n<2> - Listar Mensajes\n<3> - Eliminar Mensaje\n<4> - Salir\n"
         + "Ingrese una Opcion: \n--------------------------";
     }
 }
