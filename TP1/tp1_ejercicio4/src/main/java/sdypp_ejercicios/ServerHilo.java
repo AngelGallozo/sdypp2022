@@ -81,7 +81,7 @@ public class ServerHilo implements Runnable {
                 }else{
                     respuesta=false;
                     this.log.warning( "Usuario <" + this.client.getPort() + "> Error: Usuario o Contrasenia erroneos");
-                    this.response = "\n "+"Error: Usuario o Contrasenia erroneos.";
+                    this.response = "\n "+"Error: Usuario o Contrasenia erroneos.\n";
                 }
             }else{
                 respuesta=false;
@@ -153,14 +153,12 @@ public class ServerHilo implements Runnable {
                 }else{
                     if(opcion.equals("1")){//Escribir Mensaje.
                         escribirMensaje(entrada,salida);   
-                    }
-
-                    if(opcion.equals("2")){//Bajar Lista Mensajes.
+                    }else if(opcion.equals("2")){//Bajar Lista Mensajes.
                         bajarMensajes(entrada,salida);
-                    }
-
-                    if(opcion.equals("3")){//Eliminar Mensaje.
+                    }else if(opcion.equals("3")){//Eliminar Mensaje.
                         eliminarMensajes(entrada,salida);
+                    }else{
+                        this.response = "Opcion invalida!! Elija una de las opciones anteriores! \n";
                     }
                 }
             }

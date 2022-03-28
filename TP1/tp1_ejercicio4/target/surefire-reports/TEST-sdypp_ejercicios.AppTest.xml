@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="sdypp_ejercicios.AppTest" time="0.143" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="sdypp_ejercicios.AppTest" time="0.16" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="java.specification.version" value="11"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio3\target\test-classes;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio3\target\classes;C:\Users\Sebas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Sebas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.class.path" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio4\target\test-classes;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio4\target\classes;C:\Users\Sebas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Sebas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="java.vm.vendor" value="AdoptOpenJDK"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -17,9 +17,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Sebas\AppData\Local\Temp\surefire4204211093705798928\surefirebooter17384247777387560977.jar C:\Users\Sebas\AppData\Local\Temp\surefire4204211093705798928 2022-03-21T18-06-20_105-jvmRun1 surefire17516719787520571419tmp surefire_010414985520070311115tmp"/>
+    <property name="sun.java.command" value="C:\Users\Sebas\AppData\Local\Temp\surefire1040119437874501590\surefirebooter11611962027554654781.jar C:\Users\Sebas\AppData\Local\Temp\surefire1040119437874501590 2022-03-28T18-06-56_982-jvmRun1 surefire253726357924232399tmp surefire_08550555385090858195tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio3\target\test-classes;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio3\target\classes;C:\Users\Sebas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Sebas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="surefire.test.class.path" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio4\target\test-classes;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio4\target\classes;C:\Users\Sebas\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Sebas\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Sebas"/>
     <property name="user.language" value="es"/>
@@ -27,13 +27,13 @@
     <property name="java.version.date" value="2021-04-20"/>
     <property name="java.home" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio3"/>
+    <property name="basedir" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio4"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Sebas\AppData\Local\Temp\surefire4204211093705798928\surefirebooter17384247777387560977.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Sebas\AppData\Local\Temp\surefire1040119437874501590\surefirebooter11611962027554654781.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.11+9"/>
@@ -48,17 +48,17 @@
     <property name="java.vendor.url.bug" value="https://github.com/AdoptOpenJDK/openjdk-support/issues"/>
     <property name="java.io.tmpdir" value="C:\Users\Sebas\AppData\Local\Temp\"/>
     <property name="java.version" value="11.0.11"/>
-    <property name="user.dir" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio3"/>
+    <property name="user.dir" value="D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Repositorio 2022\sdypp2022\TP1\tp1_ejercicio4"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="sun.os.patch.level" value=""/>
-    <property name="java.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\Program Files\Rockwell Software\RSCommon;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Firebird\Firebird_3_0;C:\Program Files\FlameRobin (x64);D:\Mscgen;C:\Program Files\Git\cmd;C:\ProgramFiles\Git\bin;“%JAVA_HOME%\bin”;C:\Users\Sebas\Documents\Maven\apache-maven-3.8.1\bin;C:\php;C:\ProgramData\ComposerSetup\bin;C:\Users\Sebas\AppData\Roaming\Composer\vendor\bin;D:\Inkscape\bin;C:\Program Files\dotnet\;D:\Edunit - Love2D\LOVE\;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Maven\apache-maven-3.8.4\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\ZeroTier\One\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Sebas\AppData\Local\Microsoft\WindowsApps;C:\Users\Sebas\AppData\Local\GitHubDesktop\bin;C:\Users\Sebas\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Sebas\AppData\Roaming\Composer\vendor\bin;C:\Users\Sebas\.dotnet\tools;."/>
+    <property name="java.library.path" value="C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\AdoptOpenJDK\jdk-11.0.11.9-hotspot\bin;C:\Program Files\Rockwell Software\RSCommon;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Firebird\Firebird_3_0;C:\Program Files\FlameRobin (x64);D:\Mscgen;C:\Program Files\Git\cmd;C:\ProgramFiles\Git\bin;“%JAVA_HOME%\bin”;C:\Users\Sebas\Documents\Maven\apache-maven-3.8.1\bin;C:\php;C:\ProgramData\ComposerSetup\bin;C:\Users\Sebas\AppData\Roaming\Composer\vendor\bin;D:\Inkscape\bin;C:\Program Files\dotnet\;D:\Edunit - Love2D\LOVE\;D:\Seba\Cosas de Seba\Cuatrimestres UNLu\UNLu 7mo Cuatrimestre\Sistemas distribuidos y Programacion paralela\Maven\apache-maven-3.8.4\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\ZeroTier\One\;C:\Program Files\nodejs\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Sebas\AppData\Local\Microsoft\WindowsApps;C:\Users\Sebas\AppData\Local\GitHubDesktop\bin;C:\Users\Sebas\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Sebas\AppData\Roaming\Composer\vendor\bin;C:\Users\Sebas\.dotnet\tools;C:\Users\Sebas\AppData\Roaming\npm;."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="AdoptOpenJDK"/>
     <property name="java.vm.version" value="11.0.11+9"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="sdypp_ejercicios.AppTest" time="0.004"/>
+  <testcase name="shouldAnswerWithTrue" classname="sdypp_ejercicios.AppTest" time="0.002"/>
 </testsuite>

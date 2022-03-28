@@ -1,0 +1,10 @@
+mar. 28, 2022 6:07:23 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+mar. 28, 2022 6:07:31 P. M. sdypp_ejercicios.Servidor <init>
+INFORMACIÓN: Atendiendo al cliente: 54159
+mar. 28, 2022 6:07:36 P. M. sdypp_ejercicios.ServerHilo iniciarSesion
+ADVERTENCIA: Usuario <54159> Error: Usuario no existe
+mar. 28, 2022 6:07:42 P. M. sdypp_ejercicios.ServerHilo registrarse
+INFORMACIÓN: Usuario <54159> Usuario registrado!
+mar. 28, 2022 6:07:59 P. M. sdypp_ejercicios.ServerHilo run
+INFORMACIÓN: El cliente <54159> se ha desconectado.
