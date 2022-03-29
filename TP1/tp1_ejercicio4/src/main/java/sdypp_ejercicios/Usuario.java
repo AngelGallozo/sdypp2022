@@ -37,8 +37,15 @@ public class Usuario implements Serializable{
         return this.list_mensajes.get(index).toString();
     }
 
-    public void removerMensaje(int index) throws IndexOutOfBoundsException{
-        this.list_mensajes.remove(index);
+    public boolean hayMensajes(){
+        boolean hay_msjs = false;
+        if (this.list_mensajes.size() > 0 )
+            hay_msjs=true;
+        return hay_msjs;
+    }
+
+    public void deleteMensajes(){
+        this.list_mensajes.clear();
     }
 
 }

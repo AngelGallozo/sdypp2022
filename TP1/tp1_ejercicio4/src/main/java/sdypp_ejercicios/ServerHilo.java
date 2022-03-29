@@ -156,7 +156,7 @@ public class ServerHilo implements Runnable {
                     }else if(opcion.equals("2")){//Bajar Lista Mensajes.
                         bajarMensajes(entrada,salida);
                     }else if(opcion.equals("3")){//Eliminar Mensaje.
-                        eliminarMensajes(entrada,salida);
+                        confirmarEliminacion(entrada,salida);
                     }else{
                         this.response = "Opcion invalida!! Elija una de las opciones anteriores! \n";
                     }
@@ -268,52 +268,16 @@ public class ServerHilo implements Runnable {
         return valido;
     }
 
-    public void eliminarMensajes(DataInputStream entrada, DataOutputStream salida){
-        // Eliminar mensaje en la lista
-        boolean flag = false;
-        this.response = "";
-        while(!flag){
-            try {
-                this.log.info( "Usuario <" + this.client.getPort() + "> Opcion Eliminar mensajes");
-                this.response += " -- Mensajes a borrar --\n";
-                this.response += this.usuario_actual.getList_mensajes();
-                this.response += "\nSeleccione el numero de mensaje a borrar, o Mande 'x' para salir";
-                salida.writeUTF(this.response); 
-                String opcion = entrada.readUTF();
-                if(opcion.toUpperCase().equals("X")){
-                    flag = true;
-                }
-                else{
-                    if(!validarOpcionListMensajes(opcion, entrada, salida))
-                        this.response = " ## Opcion invalida - Vuelva a ingresar ##\n";
-                    else{
-                        //Confirmacion de ELIMINACION
-                        salida.writeUTF("Estas seguro que desea borrar el mensaje ["+opcion+"]?\n 'S' para SI, 'cualquier tecla' para NO "); 
-                        String confirmacion = entrada.readUTF();
-                        if(confirmacion.toUpperCase().equals("S")){
-                            // borrar mensaje en la lista del usuario actual
-                            this.usuario_actual.removerMensaje(Integer.parseInt(opcion));
-                            this.log.info( "Usuario <" + this.client.getPort() + "> Elimino el Mensaje " + opcion);
-                            this.response = "Exito! Se elimino el Mensaje [ "+opcion+" ]\n";
-                        }else{
-                            // cancela borrado de mensaje en la lista del usuario actual
-                            this.log.info( "Usuario <" + this.client.getPort() + "> Cancela eliminacion del Mensaje " + opcion);
-                            this.response = "Cancelado! No se elimino el Mensaje [ "+opcion+" ]\n";
-                        }
-                        
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("################################");
-                this.log.severe("Ha ocurrido un error!");
-                this.response = "\nHa ocurrido un error al eliminar los Mensajes!\n";
-                e.printStackTrace();
-            }
-        }
-    }
-
     //_________________________________________________________________________FIN Opcion Bajar Mensajes_________________________________________________________________
 
+    public void confirmarEliminacion(DataInputStream entrada, DataOutputStream salida){
+        this.response = "\nSin Mensajes a Confirmar\n";
+        if ( this.usuario_actual.hayMensajes()){
+            this.usuario_actual.deleteMensajes();  
+            this.log.info( "Usuario <" + this.client.getPort() + "> Confirmo borrado de mensajes");
+            this.response = "\nMensajes confirmados y Eliminados!!\n";  
+        }
+    }
 
     //Opciones de los Menus.
     public String opcionesMenuLogin(){
@@ -326,7 +290,7 @@ public class ServerHilo implements Runnable {
     public String opcionesMenuMensaje(){
         return "==========================\n    "
         + "Menu Mensajes\n--------------------------"
-        + "\n<1> - Escribir Mensaje\n<2> - Listar Mensajes\n<3> - Eliminar Mensaje\n<4> - Salir\n"
+        + "\n<1> - Escribir Mensaje\n<2> - Bajar Mensajes\n<3> - Confirmar Mensajes\n<4> - Salir\n"
         + "Ingrese una Opcion: \n--------------------------";
     }
 }
