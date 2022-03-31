@@ -1,4 +1,8 @@
 Conclusión:
-    Se agrego la funcionalidad de eliminar un mensaje a elección, el cual pide una confirmación antes de hacerlo.
-    Se pudieron atender a varios cliente a la vez, identificándolos por los puertos utilizados.
-    En cuanto a métricas, estas fueron similares a las de los ejercicios anteriores.
+    Se pudo emplear el servidor utilizando RMI, permitiendo publicar un objeto en la misma máquina. 
+    Las pruebas realziadas demuestran que el objeto pudo ser utilizado por el cliente, retornando la temepratura actual (generada aleatoriamente)
+    
+    (Falta probar desde una maquina distinta)
+    Métricas?
+--------------------
+Pasos a seguir: 
