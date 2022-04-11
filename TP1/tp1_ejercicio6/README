@@ -1,6 +1,6 @@
 Conclusión:
-    Con respecto a las métricas, estas fueron similares, sino identicas, a las del ejercicio 1. 
-    A diferencia del Eejercicio 1, con la incorporación de Hilos ya se pueden atender a varios usuarios sin que queden colgados. 
+    Qué impacto se genera? 
+    Qué conclusión saca sobre la forma de pasaje de parámetros en RMI?
 
 Pasos a seguir para la prueba:
 1.Acceder a la carpeta jars.
