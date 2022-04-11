@@ -2,3 +2,9 @@ Conclusión:
     Se agrego la funcionalidad de eliminar un mensaje a elección, el cual pide una confirmación antes de hacerlo.
     Se pudieron atender a varios cliente a la vez, identificándolos por los puertos utilizados.
     En cuanto a métricas, estas fueron similares a las de los ejercicios anteriores.
+
+Pasos a seguir para la prueba:
+1.Acceder a la carpeta jars.
+2.Ejecutar el comnado "java -jar Servidor.jar"
+3.Ejecutar el comnado "java -jar Cliente.jar"
+4.En el cliente se deberá ingresar la ip donde esta el servidor.

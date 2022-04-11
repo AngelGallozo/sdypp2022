@@ -2,3 +2,9 @@ Conclusión:
     Se pudieron atender a varios cliente a la vez, identificándolos por los puertos utilizados.
     En cuanto a métricas, estas fueron similares a las de los ejercicios anteriores.
     Hicimos que los mensajes almacenados en el servidor puedan ser accedidos por cada hilo en ejecución.
+
+Pasos a seguir para la prueba:
+1.Acceder a la carpeta jars.
+2.Ejecutar el comnado "java -jar Servidor.jar"
+3.Ejecutar el comnado "java -jar Cliente.jar"
+4.En el cliente se deberá ingresar la ip donde esta el servidor.

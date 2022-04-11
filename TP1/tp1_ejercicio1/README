@@ -3,3 +3,9 @@ Conclusión:
     Con respecto a mértricas, no vimos relevante medir el tiempo de las respuestas de las slicitudes en localhost y en los contenedores, porque la diferencia era ínfima (1 o 2 milisegundos).
     Si otro usuario quiere conectarse al servidor, si este ya está atendiendo a otro, se quedará colgado. 
         Esto se soluciona en el Eejercicio 2.
+
+Pasos a seguir para la prueba:
+1.Acceder a la carpeta jars.
+2.Ejecutar el comnado "java -jar Servidor.jar"
+3.Ejecutar el comnado "java -jar Cliente.jar"
+4.En el cliente se deberá ingresar la ip donde esta el servidor.
