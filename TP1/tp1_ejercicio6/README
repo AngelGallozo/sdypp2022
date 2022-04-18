@@ -1,0 +1,11 @@
+¿Que impacto se genera? ¿Que conclusión saca sobre la forma de pasaje de parámetros en RMI?
+  Por lo que se puede apreciar al utilizar la primera funcion de la interface donde recibe 2 vectores y devuelve uno con los resultados, se ve que se envian una copia al servidor de los vectores por lo que aun asi se realicen cambios en estos nunca se verán reflejado del lado del cliente, ya que se guarda solo el contenido del vector resultado.
+
+  En cambio al utilizar la funcion que recibe y devuelve un Objeto en formato Json, cambian los resultados ya que lo que se espera obtener luego del procesa
+
+--------------------
+Pasos a seguir para la prueba:
+1.Acceder a la carpeta jars.
+2.Ejecutar el comnado "java -jar Server.jar"
+3.Ejecutar el comnado "java -jar Client.jar"
+4.En el cliente se deberá ingresar la ip donde esta el servidor.

@@ -30,7 +30,7 @@ public class ServerClima {
             Registry serverRMI = LocateRegistry.createRegistry(port);
             System.out.println ("RMI Registry se inicio en el puerto: "+port);
 
-            ServiceWeather ss = new ServiceWeather();
+            ServiceWeather ss = new ServiceWeather(this.log);
             WeatherInt srvclima = (WeatherInt) UnicastRemoteObject.exportObject(ss, 6666);
             serverRMI.rebind("Info-clima", srvclima);
             System.out.println("¡¡Servidor levantado con exito!");

@@ -83,7 +83,7 @@
             <archive>
               <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>sdypp_ejercicios.ServerClima</mainClass>
+              <mainClass>sdypp_ejercicios.Cliente</mainClass>
               </manifest>
             </archive>
           </configuration>

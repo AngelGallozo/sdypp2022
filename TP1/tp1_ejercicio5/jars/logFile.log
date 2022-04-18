@@ -1,0 +1,6 @@
+abr. 18, 2022 5:32:37 P. M. sdypp_ejercicios.ServerClima <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+abr. 18, 2022 5:34:47 P. M. sdypp_ejercicios.ServiceWeather getWeather
+INFORMACIÓN: GetWeather has been called!
+abr. 18, 2022 5:34:47 P. M. sdypp_ejercicios.ServiceWeather getWeather
+INFORMACIÓN: Clima devuelto: °25 ---> Templado
