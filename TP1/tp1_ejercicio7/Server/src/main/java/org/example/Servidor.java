@@ -8,12 +8,12 @@ import java.util.logging.SimpleFormatter;
 import java.util.logging.FileHandler;
 import com.google.gson.Gson;
 
-public class ServerSumaVec {
+public class Servidor {
     final int port = 9090;
-    private final Logger log = Logger.getLogger(ServerSumaVec.class.getName());
+    private final Logger log = Logger.getLogger(Servidor.class.getName());
     private FileHandler fh;  
     
-    public ServerSumaVec(){
+    public Servidor(){
         try {
 
             this.fh = new FileHandler("logFile.log", true);
@@ -26,9 +26,9 @@ public class ServerSumaVec {
             
             Registry serverRMI = LocateRegistry.createRegistry(port);
             System.out.println ("RMI Registry se inicio en el puerto: "+port);
-            ServiceSum ss = new ServiceSum(this.log);
-            SumVecInt srvsumavec = (SumVecInt) UnicastRemoteObject.exportObject(ss, 6666);
-            serverRMI.rebind("Suma-vectores", srvsumavec);
+            ServiceEjecutorTareas ss = new ServiceEjecutorTareas(this.log);
+            EjecutorTareas srvejectareas = (EjecutorTareas) UnicastRemoteObject.exportObject(ss, 6666);
+            serverRMI.rebind("ServidorTareas", srvejectareas);
             System.out.println("¡¡Servidor levantado con exito!");
             
         }catch (Exception e){
@@ -38,6 +38,6 @@ public class ServerSumaVec {
 
 
     public static void main(String[] args) {
-        ServerSumaVec ser= new ServerSumaVec();
+        Servidor ser= new Servidor();
     }
 }

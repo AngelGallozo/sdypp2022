@@ -1,4 +1,6 @@
-org\example\ServerSumaVec.class
-org\example\ServiceSum.class
-org\example\SumVecInt.class
-org\example\ObjVector.class
+org/example/ServiceEjecutorTareas.class
+org/example/VerificarPrimo.class
+org/example/Servidor.class
+org/example/Tarea.class
+org/example/EjecutorTareas.class
+org/example/NumeroAleatorio.class

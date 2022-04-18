@@ -17,7 +17,7 @@ public class Client {
 
             System.out.println("=====================================");
             System.out.println("¡Cliente inicializado!");
-            System.out.println("Ingrese la IP donde corre el servidor de vectores");
+            System.out.println("Ingrese la IP donde corre el servidor de Tareas");
 
             boolean flag = false;
             while(!flag){
@@ -28,7 +28,7 @@ public class Client {
                     flag = true;
                 }
             }
-            System.out.println("Ingrese el puerto donde corre el servidor de vectores");
+            System.out.println("Ingrese el puerto donde corre el servidor de Tareas");
             flag = false;
             while(!flag){
                 this.puerto_Destino = scanner.nextLine();
@@ -45,42 +45,25 @@ public class Client {
             System.out.println("Conectado al IP: "+ip_Destino+" Puerto: "+puerto_Destino);
             System.out.println("------------------------------------"); 
 
-            SumVecInt ri = (SumVecInt) clientRMI.lookup("Suma-vectores");
-            int[] v1 = {1,2,3,4,5,6,7,8,9,10};
-            int[] v2 = {1,2,3,4,5,6,7,8,9,10};
+            EjecutorTareas ri = (EjecutorTareas) clientRMI.lookup("ServidorTareas");
+            
+            NumeroAleatorio na = new NumeroAleatorio(988);
+            Gson gson = new Gson();
+            String jsonMsg = gson.toJson(na,NumeroAleatorio.class);
+            String classname= na.getClass().toString().split("class ")[1];
+            System.out.println("Numero Aleatorio: " + ri.ejecutarTareas(jsonMsg,classname));
 
-            flag= false;
-            while ( !flag ) {
-                System.out.println(opcionesVectores());
-                String stropcion = scanner.nextLine();
-                try{
-                    Integer.parseInt(stropcion);
-                     if (stropcion.equals("0")){
-                        flag = true ;
-                    }else{
-                        if(stropcion.equals("1")){     //Inicio de Sesion.
-                            operarVectores(ri,v1,v2,true);
-                        }else if(stropcion.equals("2")){//Registro.
-                            operarVectores(ri,v1,v2,false);
-                        }else{
-                            // Respuesta invalida
-                            System.out.println("Opcion invalida!! Elija una de las opciones anteriores! \n");
-                        }
-                    }   
-                }
-                catch(Exception e){
-                    System.out.println("\n#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#");
-                    System.out.println("Opcion invalida!! Elija una de las opciones anteriores!  ");
-                }
-                
-            }
+            VerificarPrimo vp = new VerificarPrimo(11);
+            jsonMsg = gson.toJson(vp,VerificarPrimo.class);
+            classname= vp.getClass().toString().split("class ")[1];
+            System.out.println("Verificar Primo: " + ri.ejecutarTareas(jsonMsg,classname));
 
             System.out.println( "Servidor "+ this.puerto_Destino + " desconectado.");
             System.out.println("=====================================");
         } catch (Exception e) {
             System.out.println("\n#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#");
             System.out.println("Ha surgido un error");
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -130,101 +113,6 @@ public class Client {
         }
         return validado;
         
-    }
-
-    public String mostrarv (int[] v){
-        String mensaje = "";
-        for (int k=0; k<v.length;k++){
-            mensaje+= v[k]+"-";
-
-        }
-        return mensaje;
-    }
-
-    //Opciones de Operaciones.
-    public String opcionesVectores(){
-        return "==========================\n    "
-        + "Operaciones con Vectores\n--------------------------"
-        + "\n<1> - Sumar\n<2> - Restar\n<0> - Salir\n"
-        + "Ingrese una Opcion: \n--------------------------";
-    }
-
-
-    public void operarVectores(SumVecInt ri,int[] v1 ,int[] v2, boolean suma){
-        try{
-            String operacion;
-            if(suma){
-                operacion ="suma";            
-            }else{
-                operacion ="resta";
-            }
-
-            //Prueba con vectores pasados por valor -> simula el error de que no se modifican los vectoires como se quiere.
-            System.out.println("************* Antes de la "+operacion+" *************");
-            System.out.println("V1:"+mostrarv(v1));
-            System.out.println("V2:"+mostrarv(v2));
-
-            LocalTime tiempoAhora = java.time.LocalTime.now();
-            System.out.println("Tiempo mandado --> " + tiempoAhora); 
-
-            int[] v3;
-            if(operacion.equals("suma")){
-                v3 = ri.getSumaVectores(v1, v2);
-            }else{
-                v3 = ri.getRestaVectores(v1, v2);
-            }
-            
-
-            System.out.println("*************LUEGO DE LA +"+operacion+" *************");
-            System.out.println("V1:"+mostrarv(v1));
-            System.out.println("V2:"+mostrarv(v2));
-            System.out.println("V3:"+mostrarv(v3));
-
-            LocalTime tiempoDespues = java.time.LocalTime.now();  
-                
-            System.out.println("Tiempo recibido --> " + tiempoDespues); 
-
-            System.out.println("Tiempo transcurrido (milisegundos) --> " + tiempoAhora.until(tiempoDespues, MILLIS));                
-            System.out.println("------------------------------------");
-
-            //Prueba con vectores pasados dentro de un objeto y el objeto es pasado en formato gson a la funcion.
-            Gson gson = new Gson();
-            v3 = new int[10];
-            ObjVector v = new ObjVector(v1,v2,v3);
-            String jsonMsg = gson.toJson(v,ObjVector.class);
-            System.out.println("Obj COnvertido a Formato JSON");
-            System.out.println(jsonMsg);        
-
-            System.out.println("*************Antes de la "+ operacion+" *************");
-            System.out.println("V1:"+mostrarv(v1));
-            System.out.println("V2:"+mostrarv(v2));
-
-            tiempoAhora = java.time.LocalTime.now();
-            System.out.println("Tiempo mandado --> " + tiempoAhora); 
-            
-            if(operacion.equals("suma")){
-                v = gson.fromJson(ri.getSumaVecObjetos(jsonMsg),ObjVector.class);
-            }else{
-                v = gson.fromJson(ri.getRestaVecObjetos(jsonMsg),ObjVector.class);
-            }
-
-            System.out.println("*************LUEGO DE LA "+operacion+" *************");
-            System.out.println("V1:"+mostrarv(v.getV1()));
-            System.out.println("V2:"+mostrarv(v.getV2()));
-            System.out.println("V3:"+mostrarv(v.getV3()));
-
-            tiempoDespues = java.time.LocalTime.now();  
-                
-            System.out.println("Tiempo recibido --> " + tiempoDespues); 
-
-            System.out.println("Tiempo transcurrido (milisegundos) --> " + tiempoAhora.until(tiempoDespues, MILLIS));                
-            System.out.println("------------------------------------");
-        }
-        catch(Exception e){
-            System.out.println("\n#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#");
-            System.out.println("Ha surgido un error al operar con los vectores.");
-            System.out.println(e);
-        }
     }
 
 }

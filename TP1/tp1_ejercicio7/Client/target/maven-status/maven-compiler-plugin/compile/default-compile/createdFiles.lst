@@ -1,3 +1,5 @@
-org\example\Client.class
-org\example\SumVecInt.class
-org\example\ObjVector.class
+org/example/Tarea.class
+org/example/EjecutorTareas.class
+org/example/NumeroAleatorio.class
+org/example/Client.class
+org/example/VerificarPrimo.class
