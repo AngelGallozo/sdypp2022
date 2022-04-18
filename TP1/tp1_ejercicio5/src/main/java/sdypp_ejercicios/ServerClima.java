@@ -33,7 +33,7 @@ public class ServerClima {
             ServiceWeather ss = new ServiceWeather();
             WeatherInt srvclima = (WeatherInt) UnicastRemoteObject.exportObject(ss, 6666);
             serverRMI.rebind("Info-clima", srvclima);
-            
+            System.out.println("¡¡Servidor levantado con exito!");
         }catch(IOException e){
             log.severe("No se pudo abrir el fichero");
             e.printStackTrace();

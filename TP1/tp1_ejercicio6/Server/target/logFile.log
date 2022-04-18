@@ -1,0 +1,16 @@
+abr. 18, 2022 5:15:37 P. M. org.example.ServiceSum getSumaVectores
+INFORMACIÓN: Suma vectores has been called
+abr. 18, 2022 5:15:37 P. M. org.example.ServiceSum getSumaVectores
+INFORMACIÓN: Server is returning: 2-4-6-8-10-12-14-16-18-20-
+abr. 18, 2022 5:15:37 P. M. org.example.ServiceSum getSumaVecObjetos
+INFORMACIÓN:  Suma Objetos  has been called 
+abr. 18, 2022 5:15:37 P. M. org.example.ServiceSum getSumaVecObjetos
+INFORMACIÓN: Server is returning  {"v1":[0,0,0,0,0,0,0,0,0,0],"v2":[0,0,0,0,0,0,0,0,0,0],"v3":[2,4,6,8,10,12,14,16,18,20]}
+abr. 18, 2022 5:16:31 P. M. org.example.ServiceSum getRestaVectores
+INFORMACIÓN: Resta vectores has been called
+abr. 18, 2022 5:16:31 P. M. org.example.ServiceSum getRestaVectores
+INFORMACIÓN: Server is returning: 0-0-0-0-0-0-0-0-0-0-
+abr. 18, 2022 5:16:31 P. M. org.example.ServiceSum getRestaVecObjetos
+INFORMACIÓN: Resta Objetos has been called
+abr. 18, 2022 5:16:31 P. M. org.example.ServiceSum getRestaVecObjetos
+INFORMACIÓN: Server is returning  {"v1":[0,0,0,0,0,0,0,0,0,0],"v2":[0,0,0,0,0,0,0,0,0,0],"v3":[0,0,0,0,0,0,0,0,0,0]}
