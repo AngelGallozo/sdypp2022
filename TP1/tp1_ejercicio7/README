@@ -1,9 +1,9 @@
-Conclusión:
-    Qué impacto se genera? 
-    Qué conclusión saca sobre la forma de pasaje de parámetros en RMI?
 
+
+
+--------------------
 Pasos a seguir para la prueba:
 1.Acceder a la carpeta jars.
-2.Ejecutar el comnado "java -jar Servidor.jar"
-3.Ejecutar el comnado "java -jar Cliente.jar"
+2.Ejecutar el comnado "java -jar Server.jar"
+3.Ejecutar el comnado "java -jar Client.jar"
 4.En el cliente se deberá ingresar la ip donde esta el servidor.
