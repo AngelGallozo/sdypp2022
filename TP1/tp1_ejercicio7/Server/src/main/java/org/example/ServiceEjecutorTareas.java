@@ -17,15 +17,14 @@ public class ServiceEjecutorTareas  implements EjecutorTareas {
     public String ejecutarTareas(String objectJson, String classname) throws RemoteException{
         String resultado = "null";
         Tarea tarea=null;
-        System.out.println("Servidor recibio Tarea.");
         try{
+            log.info("Servidor recibio la Tarea " + classname);
             tarea = (Tarea) this.gson.fromJson(objectJson, Class.forName(classname));
             resultado = tarea.ejecutar();
-            System.out.println("Resultado de la tarea: " + resultado);
+            log.info("Resultado de la tarea: " + resultado);
         }catch(Exception e){
-            e.printStackTrace();
+            log.severe("Hubo un error al ejecutar la tarea " + classname);
         }
-        
         return resultado;
     }
    

@@ -15,24 +15,22 @@ public class Servidor {
     
     public Servidor(){
         try {
-
             this.fh = new FileHandler("logFile.log", true);
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
             this.log.addHandler(this.fh);
 
-            System.out.println("Server escuchando en el puerto: "+port);
+            log.info("Server escuchando en el puerto: "+port);
             System.out.println("=====================================");
             
             Registry serverRMI = LocateRegistry.createRegistry(port);
-            System.out.println ("RMI Registry se inicio en el puerto: "+port);
+            log.info("RMI Registry se inicio en el puerto: "+port);
             ServiceEjecutorTareas ss = new ServiceEjecutorTareas(this.log);
             EjecutorTareas srvejectareas = (EjecutorTareas) UnicastRemoteObject.exportObject(ss, 6666);
             serverRMI.rebind("ServidorTareas", srvejectareas);
-            System.out.println("¡¡Servidor levantado con exito!");
-            
+            log.info("¡Servidor levantado con exito!");
         }catch (Exception e){
-            e.printStackTrace();
+            log.severe("Hubo un error al iniciar el servidor!\n" + e.getMessage());
         }
     }
 

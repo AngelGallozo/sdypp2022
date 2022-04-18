@@ -1,5 +1,5 @@
-org/example/Tarea.class
-org/example/EjecutorTareas.class
-org/example/NumeroAleatorio.class
-org/example/Client.class
-org/example/VerificarPrimo.class
+org\example\Client.class
+org\example\EjecutorTareas.class
+org\example\NumeroAleatorio.class
+org\example\Tarea.class
+org\example\VerificarPrimo.class

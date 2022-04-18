@@ -21,18 +21,18 @@ public class ServerSumaVec {
             fh.setFormatter(formatter);
             this.log.addHandler(this.fh);
 
-            System.out.println("Server escuchando en el puerto: "+port);
+            log.info("Server escuchando en el puerto: "+port);
             System.out.println("=====================================");
             
             Registry serverRMI = LocateRegistry.createRegistry(port);
-            System.out.println ("RMI Registry se inicio en el puerto: "+port);
+            log.info("RMI Registry se inicio en el puerto: "+port);
             ServiceSum ss = new ServiceSum(this.log);
             SumVecInt srvsumavec = (SumVecInt) UnicastRemoteObject.exportObject(ss, 6666);
             serverRMI.rebind("Suma-vectores", srvsumavec);
-            System.out.println("¡¡Servidor levantado con exito!");
+            log.info("¡¡Servidor levantado con exito!");
             
         }catch (Exception e){
-            e.printStackTrace();
+            log.severe("Hubo un error al iniciar el servidor!\n" + e.getMessage());
         }
     }
 

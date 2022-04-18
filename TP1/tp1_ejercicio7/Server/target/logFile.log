@@ -1,0 +1,14 @@
+abr. 18, 2022 8:53:41 P. M. org.example.Servidor <init>
+INFORMACIÓN: Server escuchando en el puerto: 9090
+abr. 18, 2022 8:53:42 P. M. org.example.Servidor <init>
+INFORMACIÓN: RMI Registry se inicio en el puerto: 9090
+abr. 18, 2022 8:53:43 P. M. org.example.Servidor <init>
+INFORMACIÓN: ¡Servidor levantado con exito!
+abr. 18, 2022 8:54:01 P. M. org.example.ServiceEjecutorTareas ejecutarTareas
+INFORMACIÓN: Servidor recibio la Tarea org.example.NumeroAleatorio
+abr. 18, 2022 8:54:01 P. M. org.example.ServiceEjecutorTareas ejecutarTareas
+INFORMACIÓN: Resultado de la tarea: 124
+abr. 18, 2022 8:54:01 P. M. org.example.ServiceEjecutorTareas ejecutarTareas
+INFORMACIÓN: Servidor recibio la Tarea org.example.VerificarPrimo
+abr. 18, 2022 8:54:01 P. M. org.example.ServiceEjecutorTareas ejecutarTareas
+INFORMACIÓN: Resultado de la tarea: El numero 11 Es primo.

@@ -1,6 +1,6 @@
-org/example/ServiceEjecutorTareas.class
-org/example/VerificarPrimo.class
-org/example/Servidor.class
-org/example/Tarea.class
-org/example/EjecutorTareas.class
-org/example/NumeroAleatorio.class
+org\example\ServiceEjecutorTareas.class
+org\example\EjecutorTareas.class
+org\example\Servidor.class
+org\example\NumeroAleatorio.class
+org\example\Tarea.class
+org\example\VerificarPrimo.class
